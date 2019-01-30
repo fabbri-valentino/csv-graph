@@ -22,7 +22,7 @@ namespace CSVGraph.Data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Local")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Rilevazioni")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,16 +30,13 @@ namespace CSVGraph.Data
 		
     #region Definizioni metodo Extensibility
     partial void OnCreated();
-    partial void InsertEventLogs(EventLogs instance);
-    partial void UpdateEventLogs(EventLogs instance);
-    partial void DeleteEventLogs(EventLogs instance);
-    partial void InsertLogs(Logs instance);
-    partial void UpdateLogs(Logs instance);
-    partial void DeleteLogs(Logs instance);
+    partial void InsertData(Data instance);
+    partial void UpdateData(Data instance);
+    partial void DeleteData(Data instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::CSVGraph.Properties.Settings.Default.LocalConnectionString, mappingSource)
+				base(global::CSVGraph.Properties.Settings.Default.RilevazioniConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -68,159 +65,17 @@ namespace CSVGraph.Data
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<EventLogs> EventLogs
+		public System.Data.Linq.Table<Data> Data
 		{
 			get
 			{
-				return this.GetTable<EventLogs>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Logs> Logs
-		{
-			get
-			{
-				return this.GetTable<Logs>();
+				return this.GetTable<Data>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EventLogs")]
-	public partial class EventLogs : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _MessageText;
-		
-		private string _MessageSource;
-		
-		private System.DateTime _MessageDate;
-		
-    #region Definizioni metodo Extensibility
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnMessageTextChanging(string value);
-    partial void OnMessageTextChanged();
-    partial void OnMessageSourceChanging(string value);
-    partial void OnMessageSourceChanged();
-    partial void OnMessageDateChanging(System.DateTime value);
-    partial void OnMessageDateChanged();
-    #endregion
-		
-		public EventLogs()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageText", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string MessageText
-		{
-			get
-			{
-				return this._MessageText;
-			}
-			set
-			{
-				if ((this._MessageText != value))
-				{
-					this.OnMessageTextChanging(value);
-					this.SendPropertyChanging();
-					this._MessageText = value;
-					this.SendPropertyChanged("MessageText");
-					this.OnMessageTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageSource", DbType="NVarChar(MAX)")]
-		public string MessageSource
-		{
-			get
-			{
-				return this._MessageSource;
-			}
-			set
-			{
-				if ((this._MessageSource != value))
-				{
-					this.OnMessageSourceChanging(value);
-					this.SendPropertyChanging();
-					this._MessageSource = value;
-					this.SendPropertyChanged("MessageSource");
-					this.OnMessageSourceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageDate", DbType="DateTime NOT NULL")]
-		public System.DateTime MessageDate
-		{
-			get
-			{
-				return this._MessageDate;
-			}
-			set
-			{
-				if ((this._MessageDate != value))
-				{
-					this.OnMessageDateChanging(value);
-					this.SendPropertyChanging();
-					this._MessageDate = value;
-					this.SendPropertyChanged("MessageDate");
-					this.OnMessageDateChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Logs")]
-	public partial class Logs : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Data")]
+	public partial class Data : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -229,13 +84,15 @@ namespace CSVGraph.Data
 		
 		private string _VarName;
 		
-		private System.Nullable<System.DateTime> _TimeString;
+		private string _TimeString;
 		
-		private System.Nullable<double> _VarValue;
+		private double _VarValue;
 		
-		private System.Nullable<bool> _Validity;
+		private double _VarPosition;
 		
-		private System.Nullable<double> _Time_ms;
+		private bool _Validity;
+		
+		private double _Time_ms;
 		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
@@ -245,17 +102,19 @@ namespace CSVGraph.Data
     partial void OnIdChanged();
     partial void OnVarNameChanging(string value);
     partial void OnVarNameChanged();
-    partial void OnTimeStringChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeStringChanging(string value);
     partial void OnTimeStringChanged();
-    partial void OnVarValueChanging(System.Nullable<double> value);
+    partial void OnVarValueChanging(double value);
     partial void OnVarValueChanged();
-    partial void OnValidityChanging(System.Nullable<bool> value);
+    partial void OnVarPositionChanging(double value);
+    partial void OnVarPositionChanged();
+    partial void OnValidityChanging(bool value);
     partial void OnValidityChanged();
-    partial void OnTime_msChanging(System.Nullable<double> value);
+    partial void OnTime_msChanging(double value);
     partial void OnTime_msChanged();
     #endregion
 		
-		public Logs()
+		public Data()
 		{
 			OnCreated();
 		}
@@ -280,7 +139,7 @@ namespace CSVGraph.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VarName", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VarName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string VarName
 		{
 			get
@@ -300,8 +159,8 @@ namespace CSVGraph.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeString", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeString
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeString", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string TimeString
 		{
 			get
 			{
@@ -320,8 +179,8 @@ namespace CSVGraph.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VarValue", DbType="Float")]
-		public System.Nullable<double> VarValue
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VarValue", DbType="Float NOT NULL")]
+		public double VarValue
 		{
 			get
 			{
@@ -340,8 +199,28 @@ namespace CSVGraph.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Validity", DbType="Bit")]
-		public System.Nullable<bool> Validity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VarPosition", DbType="Float NOT NULL")]
+		public double VarPosition
+		{
+			get
+			{
+				return this._VarPosition;
+			}
+			set
+			{
+				if ((this._VarPosition != value))
+				{
+					this.OnVarPositionChanging(value);
+					this.SendPropertyChanging();
+					this._VarPosition = value;
+					this.SendPropertyChanged("VarPosition");
+					this.OnVarPositionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Validity", DbType="Bit NOT NULL")]
+		public bool Validity
 		{
 			get
 			{
@@ -360,8 +239,8 @@ namespace CSVGraph.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time_ms", DbType="Float")]
-		public System.Nullable<double> Time_ms
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time_ms", DbType="Float NOT NULL")]
+		public double Time_ms
 		{
 			get
 			{

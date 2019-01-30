@@ -16,52 +16,56 @@ namespace CSVGraph.Data
             return format;
         }
 
-        public static List<Logs> GetAllLogs()
+        public static List<Data> GetAllLogs()
         {
             DataClasses1DataContext dc = new DataClasses1DataContext();
-            var result = (from r in dc.Logs
+            var result = (from r in dc.Data
+                          where r.VarName == "nomeSet"
                           select r).ToList();
             return result;
         }
 
-        public static List<Logs> GetLogsIfValidByVar(string Variable)
+        public static List<Data> GetLogsIfValidByVar(string Variable)
         {
             DataClasses1DataContext dc = new DataClasses1DataContext();
-            var result = (from r in dc.Logs
+            var result = (from r in dc.Data
                           where r.Validity == true && r.VarName == Variable
                           select r).Take(43).ToList();
             return result;
         }
-
-        public static List<Logs> GetLogsIfValidByVarDate(string Variable, DateTime _from, DateTime _to)
+        /* convertire string in datetime
+        public static List<Data> GetLogsIfValidByVarDate(string Variable, DateTime _from, DateTime _to)
         {
             DataClasses1DataContext dc = new DataClasses1DataContext();
-            var result = (from r in dc.Logs
+            var result = (from r in dc.Data
                           where r.Validity == true && r.VarName.Contains(Variable) &&
-                          r.TimeString >= _from &&
-                          r.TimeString <= _to
+                          r.TimeString >= _from.ToString() &&
+                          r.TimeString <= _to.ToString()
                           select r).ToList();
             return result;
         }
-
-        public static List<Logs> GetLogsByDate(DateTime _from, DateTime _to)
+        */
+        /*
+        public static List<Data> GetLogsByDate(DateTime _from, DateTime _to)
         {
             DataClasses1DataContext dc = new DataClasses1DataContext();
-            var result = (from r in dc.Logs
+            var result = (from r in dc.Data
                           where r.TimeString >= _from && 
                           r.TimeString <= _to
                           select r).ToList();
             return result;
         }
-
+        */
+        /*
         public static int GetTotalLogs()
         {
             DataClasses1DataContext dc = new DataClasses1DataContext();
-            var result = (from r in dc.Logs
+            var result = (from r in dc.Data
                           select r);
             return result.Count();
         }
-
+        */
+        /*
         public static List<EventLogs> GetAllEvent()
         {
             DataClasses1DataContext dc = new DataClasses1DataContext();
@@ -85,6 +89,6 @@ namespace CSVGraph.Data
             var result = (from r in dc.EventLogs
                           select r);
             return result.Count();
-        }
+        }*/
     }
 }

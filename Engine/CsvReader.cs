@@ -32,7 +32,6 @@ namespace CSVGraph.Engine
                 {
                     case Delimiters.comma:
                         ExecuteCsv(delimiters[0], file);
-
                         break;
                     case Delimiters.semicolon:
                         ExecuteCsv(delimiters[1], file);
@@ -71,21 +70,23 @@ namespace CSVGraph.Engine
             File.AppendAllText(tmpFileName, regex);
             var conv_lines = File.ReadAllLines(tmpFileName);
             if (conv_lines == null || conv_lines.Length < 2) return;
-            header = conv_lines[0].Split(delimiters);
-            
+            //header = conv_lines[0].Split(delimiters); se l'header è presente -> header[0] , header[n]
+            //var convHeader = DateTime.Parse(header[1]);
             var table = new DataTable
             {
-                TableName = "Logs",
+                TableName = "Data",
             };
 
-            var VarName = new DataColumn() { AllowDBNull = true, DataType = typeof(string), ColumnName = header[0] };
-            var TimeString = new DataColumn() { AllowDBNull = true, DataType = typeof(DateTime), DateTimeMode = DataSetDateTime.Local, ColumnName = header[1] };
-            var VarValue = new DataColumn() { AllowDBNull = true, DataType = typeof(double), ColumnName = header[2] };
-            var Validity = new DataColumn() { AllowDBNull = true, DataType = typeof(byte), ColumnName = header[3] };
-            var TimeMs = new DataColumn() { AllowDBNull = true, DataType = typeof(double), ColumnName = header[4] };
+            var VarName = new DataColumn() { AllowDBNull = true, DataType = typeof(string), ColumnName = "VarName" };
+            var TimeString = new DataColumn() { AllowDBNull = true, DataType = typeof(string), /*DateTimeMode = DataSetDateTime.Local,*/ ColumnName = "TimeString" };
+            var VarValue = new DataColumn() { AllowDBNull = true, DataType = typeof(float), ColumnName = "VarValue" };
+            var VarPosition = new DataColumn() { AllowDBNull = true, DataType = typeof(float), ColumnName = "VarPosition" };
+            var Validity = new DataColumn() { AllowDBNull = true, DataType = typeof(byte), ColumnName = "Validity" };
+            var TimeMs = new DataColumn() { AllowDBNull = true, DataType = typeof(float), ColumnName = "Time_ms" };
             table.Columns.Add(VarName);
             table.Columns.Add(TimeString);
             table.Columns.Add(VarValue);
+            table.Columns.Add(VarPosition);
             table.Columns.Add(Validity);
             table.Columns.Add(TimeMs);
 
@@ -95,18 +96,19 @@ namespace CSVGraph.Engine
             }
             
             var dbo = "dbo";
-            var tableName = "Logs";
+            var tableName = "Data";
 
             SqlBulkCopy sqlBulk = new SqlBulkCopy(Operation.GetConnectionString())
             {
                DestinationTableName = $"{dbo}.[{tableName}]"
             };
-            
-            sqlBulk.ColumnMappings.Add(header[0], "VarName");
-            sqlBulk.ColumnMappings.Add(header[1], "TimeString");
-            sqlBulk.ColumnMappings.Add(header[2], "VarValue");
-            sqlBulk.ColumnMappings.Add(header[3], "Validity");
-            sqlBulk.ColumnMappings.Add(header[4], "Time_ms");
+            //                         file       db
+            sqlBulk.ColumnMappings.Add("VarName", "VarName");
+            sqlBulk.ColumnMappings.Add("TimeString", "TimeString");
+            sqlBulk.ColumnMappings.Add("VarValue", "VarValue");
+            sqlBulk.ColumnMappings.Add("VarPosition", "VarPosition");
+            sqlBulk.ColumnMappings.Add("Validity", "Validity");
+            sqlBulk.ColumnMappings.Add("Time_ms", "Time_ms");
             sqlBulk.WriteToServer(table);
 
             int rowsCopied = SqlBulkCopyExtension.GetRowsCopied(sqlBulk);

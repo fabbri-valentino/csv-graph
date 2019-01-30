@@ -37,16 +37,16 @@
             Syncfusion.Windows.Forms.Chart.ChartCustomShapeInfo chartCustomShapeInfo6 = new Syncfusion.Windows.Forms.Chart.ChartCustomShapeInfo();
             this.chartControl1 = new Syncfusion.Windows.Forms.Chart.ChartControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePickerAdv1 = new Syncfusion.Windows.Forms.Tools.DateTimePickerAdv();
-            this.dateTimePickerAdv2 = new Syncfusion.Windows.Forms.Tools.DateTimePickerAdv();
             this.comboDropDown1 = new Syncfusion.Windows.Forms.Tools.ComboDropDown();
+            this.dateTimePickerAdv2 = new Syncfusion.Windows.Forms.Tools.DateTimePickerAdv();
+            this.dateTimePickerAdv1 = new Syncfusion.Windows.Forms.Tools.DateTimePickerAdv();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerAdv1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerAdv2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboDropDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerAdv2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerAdv1)).BeginInit();
             this.SuspendLayout();
             // 
             // chartControl1
@@ -138,6 +138,7 @@
             this.chartControl1.Titles.Add(this.chartControl1.Title);
             this.chartControl1.ToolBar.Visible = true;
             this.chartControl1.VisualTheme = "";
+            this.chartControl1.Click += new System.EventHandler(this.chartControl1_Click);
             // 
             // panel1
             // 
@@ -153,23 +154,43 @@
             this.panel1.Size = new System.Drawing.Size(115, 450);
             this.panel1.TabIndex = 1;
             // 
-            // label1
+            // comboDropDown1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Start";
+            this.comboDropDown1.BeforeTouchSize = new System.Drawing.Size(89, 24);
+            this.comboDropDown1.Location = new System.Drawing.Point(14, 131);
+            this.comboDropDown1.Name = "comboDropDown1";
+            this.comboDropDown1.Size = new System.Drawing.Size(89, 24);
+            this.comboDropDown1.TabIndex = 5;
             // 
-            // label2
+            // dateTimePickerAdv2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "End";
+            this.dateTimePickerAdv2.BorderColor = System.Drawing.Color.Empty;
+            this.dateTimePickerAdv2.CalendarSize = new System.Drawing.Size(189, 176);
+            this.dateTimePickerAdv2.DropDownImage = null;
+            this.dateTimePickerAdv2.DropDownNormalColor = System.Drawing.SystemColors.Control;
+            this.dateTimePickerAdv2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerAdv2.Location = new System.Drawing.Point(14, 78);
+            this.dateTimePickerAdv2.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
+            this.dateTimePickerAdv2.MinValue = new System.DateTime(((long)(0)));
+            this.dateTimePickerAdv2.Name = "dateTimePickerAdv2";
+            this.dateTimePickerAdv2.Size = new System.Drawing.Size(89, 20);
+            this.dateTimePickerAdv2.TabIndex = 4;
+            this.dateTimePickerAdv2.Value = new System.DateTime(2018, 10, 31, 17, 16, 33, 224);
+            // 
+            // dateTimePickerAdv1
+            // 
+            this.dateTimePickerAdv1.BorderColor = System.Drawing.Color.Empty;
+            this.dateTimePickerAdv1.CalendarSize = new System.Drawing.Size(189, 176);
+            this.dateTimePickerAdv1.DropDownImage = null;
+            this.dateTimePickerAdv1.DropDownNormalColor = System.Drawing.SystemColors.Control;
+            this.dateTimePickerAdv1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerAdv1.Location = new System.Drawing.Point(14, 24);
+            this.dateTimePickerAdv1.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
+            this.dateTimePickerAdv1.MinValue = new System.DateTime(((long)(0)));
+            this.dateTimePickerAdv1.Name = "dateTimePickerAdv1";
+            this.dateTimePickerAdv1.Size = new System.Drawing.Size(89, 20);
+            this.dateTimePickerAdv1.TabIndex = 3;
+            this.dateTimePickerAdv1.Value = new System.DateTime(2018, 10, 31, 17, 16, 33, 224);
             // 
             // label3
             // 
@@ -180,41 +201,23 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Variable";
             // 
-            // dateTimePickerAdv1
+            // label2
             // 
-            this.dateTimePickerAdv1.BorderColor = System.Drawing.Color.Empty;
-            this.dateTimePickerAdv1.CalendarSize = new System.Drawing.Size(189, 176);
-            this.dateTimePickerAdv1.DropDownImage = null;
-            this.dateTimePickerAdv1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerAdv1.Location = new System.Drawing.Point(14, 24);
-            this.dateTimePickerAdv1.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
-            this.dateTimePickerAdv1.MinValue = new System.DateTime(((long)(0)));
-            this.dateTimePickerAdv1.Name = "dateTimePickerAdv1";
-            this.dateTimePickerAdv1.Size = new System.Drawing.Size(89, 20);
-            this.dateTimePickerAdv1.TabIndex = 3;
-            this.dateTimePickerAdv1.Value = new System.DateTime(2018, 10, 31, 17, 16, 33, 224);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "End";
             // 
-            // dateTimePickerAdv2
+            // label1
             // 
-            this.dateTimePickerAdv2.BorderColor = System.Drawing.Color.Empty;
-            this.dateTimePickerAdv2.CalendarSize = new System.Drawing.Size(189, 176);
-            this.dateTimePickerAdv2.DropDownImage = null;
-            this.dateTimePickerAdv2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerAdv2.Location = new System.Drawing.Point(14, 78);
-            this.dateTimePickerAdv2.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
-            this.dateTimePickerAdv2.MinValue = new System.DateTime(((long)(0)));
-            this.dateTimePickerAdv2.Name = "dateTimePickerAdv2";
-            this.dateTimePickerAdv2.Size = new System.Drawing.Size(89, 20);
-            this.dateTimePickerAdv2.TabIndex = 4;
-            this.dateTimePickerAdv2.Value = new System.DateTime(2018, 10, 31, 17, 16, 33, 224);
-            // 
-            // comboDropDown1
-            // 
-            this.comboDropDown1.BeforeTouchSize = new System.Drawing.Size(89, 24);
-            this.comboDropDown1.Location = new System.Drawing.Point(14, 131);
-            this.comboDropDown1.Name = "comboDropDown1";
-            this.comboDropDown1.Size = new System.Drawing.Size(89, 24);
-            this.comboDropDown1.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Start";
             // 
             // SyncChart
             // 
@@ -225,11 +228,12 @@
             this.Controls.Add(this.chartControl1);
             this.Name = "SyncChart";
             this.Text = "Chart";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerAdv1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerAdv2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboDropDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerAdv2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerAdv1)).EndInit();
             this.ResumeLayout(false);
 
         }

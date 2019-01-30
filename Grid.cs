@@ -10,7 +10,7 @@ namespace CSVGraph
     public partial class Grid : Form
     {
         MyDataSet myDataSet = new MyDataSet();
-        LogsTableAdapter logsTableAdapter = new LogsTableAdapter();
+        DataTableAdapter logsTableAdapter = new DataTableAdapter();
         DataTable tempTable = new DataTable();
         DataTableReader Reader { get; set; }
         public int Result { get; set; }
@@ -26,8 +26,8 @@ namespace CSVGraph
         }
         private void Grid_Load(object sender, System.EventArgs e)
         {
-            logsTableAdapter.Fill(myDataSet.Logs);
-            Reader = myDataSet.Logs.CreateDataReader();
+            logsTableAdapter.Fill(myDataSet.Data);
+            Reader = myDataSet.Data.CreateDataReader();
             tempTable.Load(Reader);
             if (tempTable.Rows.Count == 0)
             {
@@ -84,8 +84,8 @@ namespace CSVGraph
                 //tempTable.Clear();
                 this._gridGroupingControl2.Refresh();
                 this._gridGroupingControl2.Update();
-                logsTableAdapter.Fill(myDataSet.Logs);
-                Reader = myDataSet.Logs.CreateDataReader();
+                logsTableAdapter.Fill(myDataSet.Data);
+                Reader = myDataSet.Data.CreateDataReader();
                 tempTable.Load(Reader);
                 Pager pager = new Pager
                 {

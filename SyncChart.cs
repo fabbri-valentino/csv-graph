@@ -1,13 +1,6 @@
 ﻿using CSVGraph.Data;
 using Syncfusion.Windows.Forms.Chart;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CSVGraph
@@ -17,7 +10,7 @@ namespace CSVGraph
         public SyncChart()
         {
             InitializeComponent();
-            //BindChart(Operation.GetLogsIfValidByVarDate());
+            BindChart(Operation.GetAllLogs());
         }
 
         #region ChartDataBinding
@@ -26,21 +19,23 @@ namespace CSVGraph
             #region Series
             this.chartControl1.Series.Clear();
             ChartSeries series = new ChartSeries("Trend");
-            ChartDataBindModel dataSeriesModel = new ChartDataBindModel(populations);
-            dataSeriesModel.YNames = new string[] { "VarValue" };
-            dataSeriesModel.XName = "TimeString";
-            
+            ChartDataBindModel dataSeriesModel = new ChartDataBindModel(populations)
+            {
+                YNames = new string[] { "VarValue" },
+                XName = "VarPosition"
+            };
+
             // Specifying IntervalType
-            this.chartControl1.PrimaryXAxis.IntervalType = ChartDateTimeIntervalType.Auto;
+            //this.chartControl1.PrimaryXAxis.IntervalType = ;
             this.chartControl1.PrimaryXAxis.LabelIntersectAction = ChartLabelIntersectAction.Rotate;
-            this.chartControl1.PrimaryXAxis.ValueType = ChartValueType.DateTime;
+            this.chartControl1.PrimaryXAxis.ValueType = ChartValueType.Double;
 
             // Specifying RangeType
             this.chartControl1.PrimaryXAxis.RangeType = ChartAxisRangeType.Auto;
             //this.chartControl1.PrimaryXAxis.DateTimeRange = new ChartDateTimeRange(start, start.AddDays(42), 7, ChartDateTimeIntervalType.Days);
             //this.chartControl1.PrimaryXAxis.DateTimeInterval.Type = ChartDateTimeIntervalType.Days;
 
-            this.chartControl1.PrimaryXAxis.DateTimeFormat = "dd/MM/yy hh:mm:ss";
+            //this.chartControl1.PrimaryXAxis.DateTimeFormat = "dd/MM/yy hh:mm:ss";
 
             series.SeriesModel = dataSeriesModel;
             series.Type = ChartSeriesType.StepLine;
@@ -52,8 +47,9 @@ namespace CSVGraph
             series.Style.Border.Width = 1F;
             series.Style.Border.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             series.Style.DisplayShadow = true;
-            series.Style.DisplayText = true;
+            series.Style.DisplayText = false;
             series.Style.DrawTextShape = false;
+            
             ChartDataBindAxisLabelModel dataLabelsModel = new ChartDataBindAxisLabelModel(populations);
             dataLabelsModel.LabelName = "Misurazione";
             chartControl1.Series.Add(series);
@@ -61,5 +57,10 @@ namespace CSVGraph
             #endregion
         }
         #endregion
+
+        private void chartControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
