@@ -35,11 +35,13 @@ namespace CSVGraph
             this.sfButton2 = new Syncfusion.WinForms.Controls.SfButton();
             this.sfButton1 = new Syncfusion.WinForms.Controls.SfButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.sfButton5 = new Syncfusion.WinForms.Controls.SfButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.sfButton5);
             this.panel1.Controls.Add(this.sfButton4);
             this.panel1.Controls.Add(this.sfButton3);
             this.panel1.Controls.Add(this.sfButton2);
@@ -47,7 +49,7 @@ namespace CSVGraph
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 490);
+            this.panel1.Size = new System.Drawing.Size(200, 656);
             this.panel1.TabIndex = 4;
             // 
             // sfButton4
@@ -58,7 +60,7 @@ namespace CSVGraph
             this.sfButton4.Name = "sfButton4";
             this.sfButton4.Size = new System.Drawing.Size(197, 48);
             this.sfButton4.TabIndex = 3;
-            this.sfButton4.Text = "Chart";
+            this.sfButton4.Text = "Mostra profilo";
             this.sfButton4.Click += new System.EventHandler(this.sfButton4_Click);
             // 
             // sfButton3
@@ -69,7 +71,7 @@ namespace CSVGraph
             this.sfButton3.Name = "sfButton3";
             this.sfButton3.Size = new System.Drawing.Size(197, 48);
             this.sfButton3.TabIndex = 2;
-            this.sfButton3.Text = "Grid";
+            this.sfButton3.Text = "Tabella dati";
             this.sfButton3.Click += new System.EventHandler(this.sfButton3_Click);
             // 
             // sfButton2
@@ -80,7 +82,7 @@ namespace CSVGraph
             this.sfButton2.Name = "sfButton2";
             this.sfButton2.Size = new System.Drawing.Size(197, 48);
             this.sfButton2.TabIndex = 1;
-            this.sfButton2.Text = "Connection";
+            this.sfButton2.Text = "Connessione";
             this.sfButton2.Click += new System.EventHandler(this.sfButton2_Click);
             // 
             // sfButton1
@@ -91,7 +93,7 @@ namespace CSVGraph
             this.sfButton1.Name = "sfButton1";
             this.sfButton1.Size = new System.Drawing.Size(197, 48);
             this.sfButton1.TabIndex = 0;
-            this.sfButton1.Text = "CSV Import";
+            this.sfButton1.Text = "Importa profilo";
             this.sfButton1.Click += new System.EventHandler(this.sfButton1_Click);
             // 
             // panel2
@@ -100,21 +102,32 @@ namespace CSVGraph
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(202, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1163, 490);
+            this.panel2.Size = new System.Drawing.Size(1133, 656);
             this.panel2.TabIndex = 5;
+            // 
+            // sfButton5
+            // 
+            this.sfButton5.AccessibleName = "Button";
+            this.sfButton5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.sfButton5.Location = new System.Drawing.Point(0, 605);
+            this.sfButton5.Name = "sfButton5";
+            this.sfButton5.Size = new System.Drawing.Size(197, 48);
+            this.sfButton5.TabIndex = 4;
+            this.sfButton5.Text = "Guida";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1367, 494);
+            this.ClientSize = new System.Drawing.Size(1337, 660);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.Style.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Text = "CSV Graph";
+            this.Text = "Gestione Profili";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -129,5 +142,6 @@ namespace CSVGraph
         private Syncfusion.WinForms.Controls.SfButton sfButton2;
         private Syncfusion.WinForms.Controls.SfButton sfButton1;
         private System.Windows.Forms.Panel panel2;
+        private Syncfusion.WinForms.Controls.SfButton sfButton5;
     }
 }

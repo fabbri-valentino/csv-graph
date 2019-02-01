@@ -1,16 +1,19 @@
 ﻿using CSVGraph.Data;
 using Syncfusion.Windows.Forms.Chart;
 using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace CSVGraph
 {
     public partial class SyncChart : Form
     {
+        internal string passSetName { get; set; }
         public SyncChart()
         {
             InitializeComponent();
-            BindChart(Operation.GetAllLogs());
+            refreshdata();
         }
 
         #region ChartDataBinding
@@ -60,7 +63,33 @@ namespace CSVGraph
 
         private void chartControl1_Click(object sender, EventArgs e)
         {
+            passSetName = comboBox1.SelectedText;
+            label4.Text = passSetName;
+            this.Refresh();
+            BindChart(Operation.GetAllLogs(passSetName));
+        }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void refreshdata()
+        {
+            /*
+            DataRow dr;
+            SqlConnection con = new SqlConnection(Operation.GetConnectionString());
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select * from [Data]", con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dr = dt.NewRow();
+            dr.ItemArray = new object[] { 0, "--Seleziona Set--" };
+            dt.Rows.InsertAt(dr, 0);*/
+            comboBox1.ValueMember = "id";
+            comboBox1.DisplayMember = "VarName";
+            comboBox1.DataSource = Operation.GetVarName();
+            //con.Close();
         }
     }
 }

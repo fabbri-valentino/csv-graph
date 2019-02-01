@@ -16,13 +16,23 @@ namespace CSVGraph.Data
             return format;
         }
 
-        public static List<Data> GetAllLogs()
+        public static List<Data> GetAllLogs(string varName)
         {
             DataClasses1DataContext dc = new DataClasses1DataContext();
             var result = (from r in dc.Data
-                          where r.VarName == "nomeSet"
+                          where r.VarName == varName
                           select r).ToList();
             return result;
+        }
+
+        public static List<string> GetVarName()
+        {
+            DataClasses1DataContext dc = new DataClasses1DataContext();
+            var query = dc.Data.GroupBy(x => x.VarName)
+              .Where(g => g.Count() > 1)
+              .Select(y => y.Key)
+              .ToList();
+            return query;
         }
 
         public static List<Data> GetLogsIfValidByVar(string Variable)

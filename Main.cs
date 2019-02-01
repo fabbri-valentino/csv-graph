@@ -19,11 +19,11 @@ namespace CSVGraph
         private void Main_Load(object sender, System.EventArgs e)
         {
         }
-
+        /*
         private void BindChart(object populations)
         {
             #region Series
-            /*
+            
             this.chartControl1.Series.Clear();
             ChartSeries series = new ChartSeries("Profilo");
             ChartDataBindModel dataSeriesModel = new ChartDataBindModel(populations);
@@ -45,22 +45,22 @@ namespace CSVGraph
             dataLabelsModel.LabelName = "Misurazione";
             chartControl1.Series.Add(series);
             chartControl1.PrimaryXAxis.LabelsImpl = dataLabelsModel;
-            */
+            
             #endregion
         }
-
+        */
         private void sfButton1_Click(object sender, System.EventArgs e)
         {
             ImportaCsv importCsv = new ImportaCsv
             {
-                TopLevel = false,
+                TopLevel = true,
                 AutoScroll = true
             };
-            panel2.Controls.Clear();
-            panel2.Visible = true;
-            panel2.Controls.Add(importCsv);
-            importCsv.FormBorderStyle = FormBorderStyle.None;
-            importCsv.Dock = DockStyle.Fill;
+            //panel2.Controls.Clear();
+            //panel2.Visible = true;
+            //panel2.Controls.Add(importCsv);
+            //importCsv.FormBorderStyle = FormBorderStyle.None;
+            //importCsv.Dock = DockStyle.Fill;
             importCsv.Show();
         }
 
@@ -68,14 +68,14 @@ namespace CSVGraph
         {
             ConnectionString connectionString = new ConnectionString
             {
-                TopLevel = false,
+                TopLevel = true,
                 AutoScroll = true
             };
             panel2.Controls.Clear();
-            panel2.Visible = true;
-            panel2.Controls.Add(connectionString);
-            connectionString.FormBorderStyle = FormBorderStyle.None;
-            connectionString.Dock = DockStyle.Fill;
+            //panel2.Visible = true;
+            //panel2.Controls.Add(connectionString);
+            //connectionString.FormBorderStyle = FormBorderStyle.None;
+            //connectionString.Dock = DockStyle.Fill;
             connectionString.Show();
         }
 
@@ -99,7 +99,8 @@ namespace CSVGraph
             SyncChart chart = new SyncChart
             {
                 TopLevel = false,
-                AutoScroll = true
+                AutoScroll = true,
+                AutoSize = true
             };
             panel2.Controls.Clear();
             panel2.Visible = true;
