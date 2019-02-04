@@ -1,8 +1,6 @@
 ﻿using CSVGraph.Data;
 using Syncfusion.Windows.Forms.Chart;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace CSVGraph
@@ -32,9 +30,7 @@ namespace CSVGraph
             //this.chartControl1.PrimaryXAxis.IntervalType = ;
             this.chartControl1.PrimaryXAxis.LabelIntersectAction = ChartLabelIntersectAction.Rotate;
             this.chartControl1.PrimaryXAxis.ValueType = ChartValueType.Double;
-
-            // Specifying RangeType
-            this.chartControl1.PrimaryXAxis.RangeType = ChartAxisRangeType.Auto;
+            
             //this.chartControl1.PrimaryXAxis.DateTimeRange = new ChartDateTimeRange(start, start.AddDays(42), 7, ChartDateTimeIntervalType.Days);
             //this.chartControl1.PrimaryXAxis.DateTimeInterval.Type = ChartDateTimeIntervalType.Days;
 
@@ -44,12 +40,11 @@ namespace CSVGraph
             series.Type = ChartSeriesType.StepLine;
             series.FancyToolTip.ResizeInsideSymbol = true;
             series.Name = "Trend";
-            series.Resolution = 0D;
             series.StackingGroup = "Default Group";
+            series.Style.Border.Width = 3F;
             series.Style.Border.Color = System.Drawing.Color.Black;
-            series.Style.Border.Width = 1F;
             series.Style.Border.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            series.Style.DisplayShadow = true;
+            series.Style.DisplayShadow = false;
             series.Style.DisplayText = false;
             series.Style.DrawTextShape = false;
             

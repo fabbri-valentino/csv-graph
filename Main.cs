@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using CSVGraph.Directories;
 using Syncfusion.WinForms.Controls;
 
@@ -18,6 +17,7 @@ namespace CSVGraph
 
         private void Main_Load(object sender, System.EventArgs e)
         {
+            ShowChart();
         }
         /*
         private void BindChart(object populations)
@@ -51,35 +51,41 @@ namespace CSVGraph
         */
         private void sfButton1_Click(object sender, System.EventArgs e)
         {
-            ImportaCsv importCsv = new ImportaCsv
-            {
-                TopLevel = true,
-                AutoScroll = true
-            };
-            //panel2.Controls.Clear();
-            //panel2.Visible = true;
-            //panel2.Controls.Add(importCsv);
-            //importCsv.FormBorderStyle = FormBorderStyle.None;
-            //importCsv.Dock = DockStyle.Fill;
-            importCsv.Show();
+            ShowImport();
         }
 
         private void sfButton2_Click(object sender, System.EventArgs e)
         {
-            ConnectionString connectionString = new ConnectionString
-            {
-                TopLevel = true,
-                AutoScroll = true
-            };
-            panel2.Controls.Clear();
-            //panel2.Visible = true;
-            //panel2.Controls.Add(connectionString);
-            //connectionString.FormBorderStyle = FormBorderStyle.None;
-            //connectionString.Dock = DockStyle.Fill;
-            connectionString.Show();
+            ShowConnectionString();
         }
 
         private void sfButton3_Click(object sender, System.EventArgs e)
+        {
+            ShowGrid();
+        }
+
+        private void sfButton4_Click(object sender, System.EventArgs e)
+        {
+            ShowChart();
+        }
+        
+        private void ShowChart()
+        {
+            SyncChart chart = new SyncChart
+            {
+                TopLevel = false,
+                AutoScroll = true,
+                AutoSize = true
+            };
+            panel2.Controls.Clear();
+            panel2.Visible = true;
+            panel2.Controls.Add(chart);
+            chart.FormBorderStyle = FormBorderStyle.None;
+            chart.Dock = DockStyle.Fill;
+            chart.Show();
+        }
+
+        private void ShowGrid()
         {
             Grid grid = new Grid
             {
@@ -94,20 +100,24 @@ namespace CSVGraph
             grid.Show();
         }
 
-        private void sfButton4_Click(object sender, System.EventArgs e)
+        private void ShowImport()
         {
-            SyncChart chart = new SyncChart
+            ImportaCsv importCsv = new ImportaCsv
             {
-                TopLevel = false,
-                AutoScroll = true,
-                AutoSize = true
+                TopLevel = true,
+                AutoScroll = true
             };
-            panel2.Controls.Clear();
-            panel2.Visible = true;
-            panel2.Controls.Add(chart);
-            chart.FormBorderStyle = FormBorderStyle.None;
-            chart.Dock = DockStyle.Fill;
-            chart.Show();
+            importCsv.Show();
+        }
+
+        private void ShowConnectionString()
+        {
+            ConnectionString connectionString = new ConnectionString
+            {
+                TopLevel = true,
+                AutoScroll = true
+            };
+            connectionString.Show();
         }
     }
 }
