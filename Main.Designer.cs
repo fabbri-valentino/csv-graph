@@ -51,7 +51,7 @@ namespace CSVGraph
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 644);
+            this.panel1.Size = new System.Drawing.Size(200, 640);
             this.panel1.TabIndex = 4;
             // 
             // sfButton5
@@ -61,7 +61,7 @@ namespace CSVGraph
             this.sfButton5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.sfButton5.Location = new System.Drawing.Point(3, 593);
             this.sfButton5.Name = "sfButton5";
-            this.sfButton5.Size = new System.Drawing.Size(194, 48);
+            this.sfButton5.Size = new System.Drawing.Size(194, 44);
             this.sfButton5.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.sfButton5.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.sfButton5.Style.HoverForeColor = System.Drawing.Color.White;
@@ -140,7 +140,7 @@ namespace CSVGraph
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel3.Location = new System.Drawing.Point(208, 595);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(994, 51);
+            this.panel3.Size = new System.Drawing.Size(1020, 44);
             this.panel3.TabIndex = 0;
             // 
             // panel2
@@ -148,14 +148,14 @@ namespace CSVGraph
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel2.Location = new System.Drawing.Point(208, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(994, 584);
+            this.panel2.Size = new System.Drawing.Size(1020, 584);
             this.panel2.TabIndex = 5;
             // 
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1205, 648);
+            this.ClientSize = new System.Drawing.Size(1231, 644);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);

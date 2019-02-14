@@ -20,7 +20,7 @@ namespace CSVGraph.Data
         {
             DataClasses1DataContext dc = new DataClasses1DataContext();
             var result = (from r in dc.Data
-                          where r.VarName == varName
+                          where r.VarName == varName && r.VarValue != 0
                           select r).ToList();
             return result;
         }

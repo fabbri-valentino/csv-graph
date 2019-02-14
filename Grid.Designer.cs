@@ -55,7 +55,7 @@ namespace CSVGraph
             this._gridGroupingControl2.Name = "_gridGroupingControl2";
             this._gridGroupingControl2.Office2016ScrollBarsColorScheme = Syncfusion.Windows.Forms.ScrollBarOffice2016ColorScheme.White;
             this._gridGroupingControl2.ShowCurrentCellBorderBehavior = Syncfusion.Windows.Forms.Grid.GridShowCurrentCellBorder.GrayWhenLostFocus;
-            this._gridGroupingControl2.Size = new System.Drawing.Size(976, 551);
+            this._gridGroupingControl2.Size = new System.Drawing.Size(1004, 546);
             this._gridGroupingControl2.TabIndex = 0;
             this._gridGroupingControl2.TableDescriptor.AllowNew = false;
             this._gridGroupingControl2.TableDescriptor.TableOptions.CaptionRowHeight = 100;
@@ -80,9 +80,9 @@ namespace CSVGraph
             this.sfButton1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.sfButton1.Dock = System.Windows.Forms.DockStyle.Right;
             this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.sfButton1.Location = new System.Drawing.Point(880, 0);
+            this.sfButton1.Location = new System.Drawing.Point(908, 0);
             this.sfButton1.Name = "sfButton1";
-            this.sfButton1.Size = new System.Drawing.Size(96, 551);
+            this.sfButton1.Size = new System.Drawing.Size(96, 546);
             this.sfButton1.Style.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.sfButton1.TabIndex = 1;
             this.sfButton1.Text = "Update";
@@ -91,7 +91,7 @@ namespace CSVGraph
             // 
             // Grid
             // 
-            this.ClientSize = new System.Drawing.Size(976, 551);
+            this.ClientSize = new System.Drawing.Size(1004, 546);
             this.Controls.Add(this.sfButton1);
             this.Controls.Add(this._gridGroupingControl2);
             this.Name = "Grid";
