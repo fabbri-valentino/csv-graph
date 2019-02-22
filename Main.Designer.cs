@@ -51,7 +51,7 @@ namespace CSVGraph
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 640);
+            this.panel1.Size = new System.Drawing.Size(200, 632);
             this.panel1.TabIndex = 4;
             // 
             // sfButton5
@@ -155,7 +155,7 @@ namespace CSVGraph
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1231, 644);
+            this.ClientSize = new System.Drawing.Size(1283, 636);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
